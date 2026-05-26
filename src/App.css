@@ -1,0 +1,577 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Patrick+Hand&display=swap");
+
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+#root {
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  color: #fff7ff;
+  overflow-x: hidden;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 4, 13, 0.8) 0%,
+      rgba(8, 8, 24, 0.45) 30%,
+      rgba(8, 8, 24, 0.12) 58%,
+      rgba(3, 4, 13, 0.18) 100%
+    ),
+    url("/bg.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 270px 560px 1fr;
+  gap: 30px;
+  padding: 30px 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.glass {
+  background: rgba(13, 13, 32, 0.43);
+  border: 1px solid rgba(255, 190, 239, 0.24);
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+}
+
+/* LEFT SIDE */
+
+.sidebar {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 10px 0;
+  position: relative;
+  z-index: 3;
+}
+
+.logoText {
+  font-family: "Patrick Hand", cursive;
+  font-size: 2.45rem;
+  line-height: 0.95;
+  color: #ffc4ee;
+  text-shadow:
+    0 0 14px rgba(255, 135, 230, 0.7),
+    0 0 30px rgba(255, 135, 230, 0.25);
+  padding: 10px 18px 16px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.menuItem {
+  min-height: 58px;
+  border-radius: 16px;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: #fff7ff;
+  text-decoration: none;
+  background: rgba(19, 20, 38, 0.54);
+  border: 1px solid rgba(255, 255, 255, 0.045);
+  cursor: pointer;
+  transition: 0.22s ease;
+}
+
+.menuItem span {
+  width: 22px;
+  color: #ffe1f7;
+  font-size: 1.25rem;
+  text-align: center;
+  text-shadow: 0 0 14px rgba(255, 182, 239, 0.45);
+}
+
+.menuItem:hover {
+  transform: translateX(4px);
+  background: rgba(255, 200, 241, 0.13);
+  border-color: rgba(255, 205, 243, 0.25);
+}
+
+.menuItem.active {
+  background: rgba(255, 147, 224, 0.22);
+  border-color: rgba(255, 177, 235, 0.42);
+  box-shadow: 0 0 28px rgba(255, 127, 220, 0.15);
+}
+
+.sideNote {
+  margin-top: auto;
+  border-radius: 18px;
+  padding: 19px;
+  color: rgba(255, 245, 255, 0.75);
+  line-height: 1.65;
+  background: rgba(15, 16, 32, 0.48);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* CENTER */
+
+.mainPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-self: start;
+  position: relative;
+  z-index: 3;
+}
+
+.hero {
+  border-radius: 26px;
+  padding: 34px 42px;
+}
+
+.hero h1 {
+  margin: 0 0 14px;
+  font-size: clamp(2.35rem, 3.15vw, 3.45rem);
+  line-height: 1.03;
+  letter-spacing: -0.05em;
+  color: #fff2ff;
+  text-shadow: 0 0 20px rgba(255, 158, 231, 0.22);
+}
+
+.hero p {
+  margin: 0;
+  max-width: 560px;
+  color: rgba(255, 247, 255, 0.86);
+  line-height: 1.75;
+  font-size: 1.05rem;
+}
+
+.comfortCard {
+  border-radius: 28px;
+  padding: 33px 38px 28px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 24px;
+  color: #ffbcf1;
+}
+
+.cardHeader span {
+  font-size: 2.15rem;
+  text-shadow: 0 0 18px rgba(255, 153, 229, 0.7);
+}
+
+.cardHeader h2 {
+  flex: 1;
+  margin: 0;
+  font-size: clamp(1.7rem, 2.4vw, 2.25rem);
+  color: #ffc6f4;
+  letter-spacing: -0.03em;
+}
+
+.selectedText {
+  white-space: pre-line;
+  margin: 0;
+  color: #fff7ff;
+  font-size: 1.08rem;
+  line-height: 1.8;
+}
+
+.littleThings {
+  margin: 30px 0 14px;
+  color: #ffd6f7;
+  font-weight: 500;
+}
+
+.reminderBtn {
+  width: 100%;
+  min-height: 58px;
+  border-radius: 18px;
+  color: #fff7ff;
+  background: rgba(255, 207, 245, 0.08);
+  border: 1px solid rgba(255, 198, 240, 0.28);
+  cursor: pointer;
+  transition: 0.22s ease;
+}
+
+.reminderBtn:hover {
+  background: rgba(255, 207, 245, 0.14);
+  transform: translateY(-2px);
+}
+
+.reminderBox {
+  margin-top: 14px;
+  padding: 24px 22px;
+  border-radius: 18px;
+  text-align: center;
+  line-height: 1.65;
+  color: #ffc8f2;
+  background: rgba(255, 128, 223, 0.11);
+  border: 1px solid rgba(255, 180, 235, 0.19);
+}
+
+.quickActions {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.quickBtn {
+  min-height: 108px;
+  border-radius: 18px;
+  color: #fff7ff;
+  text-decoration: none;
+  background: rgba(16, 18, 37, 0.52);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+  padding: 12px;
+
+  cursor: pointer;
+  transition: 0.22s ease;
+
+  text-align: center;
+}
+
+.quickBtn:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 185, 239, 0.3);
+  background: rgba(255, 196, 239, 0.1);
+}
+
+.quickBtn > span:first-child,
+.quickIcon {
+  font-size: 1.7rem;
+  line-height: 1;
+}
+
+.quickBtn span:last-child {
+  font-size: 1rem;
+  line-height: 1.2;
+  font-weight: 500;
+}
+.bottomQuote {
+  margin: 8px 0 0;
+  text-align: center;
+  font-family: "Patrick Hand", cursive;
+  font-size: 1.45rem;
+  line-height: 1.25;
+  color: #ffc7f1;
+}
+
+/* RIGHT SIDE */
+
+.catPanel {
+  position: relative;
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+  z-index: 3;
+}
+
+.musicCard {
+  align-self: flex-end;
+  width: min(100%, 480px);
+  border-radius: 22px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.musicIcon {
+  font-size: 2rem;
+  color: #ffb6ef;
+}
+
+.musicCard strong {
+  display: block;
+  color: #fff6ff;
+  margin-bottom: 4px;
+}
+
+.musicCard p {
+  margin: 0;
+  color: rgba(255, 247, 255, 0.72);
+}
+
+.musicCard button {
+  margin-left: auto;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  color: #fff7ff;
+  background: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+.speechBubble {
+  width: min(100%, 370px);
+  margin: 58px 72px 0 auto;
+  border-radius: 18px;
+  padding: 20px 24px;
+  color: #fff6ff;
+  line-height: 1.65;
+  white-space: pre-line;
+  position: relative;
+  z-index: 4;
+}
+
+.speechBubble::after {
+  content: "";
+  position: absolute;
+  right: 30px;
+  bottom: -18px;
+  width: 26px;
+  height: 26px;
+  background: rgba(13, 13, 32, 0.43);
+  border-right: 1px solid rgba(255, 190, 239, 0.18);
+  border-bottom: 1px solid rgba(255, 190, 239, 0.18);
+  transform: rotate(45deg);
+}
+
+.heartFloat {
+  position: absolute;
+  top: 250px;
+  right: 105px;
+  font-size: 3.2rem;
+  color: #ffb5eb;
+  z-index: 3;
+  animation: heartFloat 3s ease-in-out infinite;
+}
+
+@keyframes heartFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-5deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(5deg);
+  }
+}
+
+.catClickZone {
+  position: absolute;
+  right: 70px;
+  top: 210px;
+  width: 500px;
+  height: 430px;
+  background: transparent;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.catActions {
+  width: min(100%, 560px);
+  margin-top: auto;
+  margin-left: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  z-index: 4;
+}
+
+.catActions button,
+.watchKitty {
+  border-radius: 18px;
+  padding: 18px 20px;
+  color: #fff7ff;
+  background: rgba(17, 18, 36, 0.54);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  cursor: pointer;
+  transition: 0.22s ease;
+  text-align: left;
+}
+
+.catActions button {
+  min-height: 118px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.catActions button:hover,
+.watchKitty:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 196, 239, 0.1);
+  border-color: rgba(255, 185, 239, 0.27);
+}
+
+.catActions small,
+.watchKitty small {
+  color: rgba(255, 247, 255, 0.72);
+  line-height: 1.35;
+}
+
+.watchKitty {
+  width: min(100%, 560px);
+  margin: 14px 0 0 auto;
+  min-height: 76px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* SOFT RAIN — dots/streaks instead of thick lines */
+
+.rain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.22;
+  background-image:
+    radial-gradient(ellipse at center, rgba(145, 190, 255, 0.45) 0 1px, transparent 1.5px),
+    radial-gradient(ellipse at center, rgba(255, 255, 255, 0.28) 0 1px, transparent 1.5px);
+  background-size:
+    42px 72px,
+    70px 110px;
+  background-position:
+    0 0,
+    25px 40px;
+  animation: rainFall 1.2s linear infinite;
+}
+
+@keyframes rainFall {
+  from {
+    background-position:
+      0 -72px,
+      25px -110px;
+  }
+
+  to {
+    background-position:
+      0 72px,
+      25px 110px;
+  }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1180px) {
+  body {
+    background-position: 62% center;
+  }
+
+  .app {
+    grid-template-columns: 1fr;
+    padding: 22px;
+  }
+
+  .sidebar,
+  .catPanel {
+    min-height: auto;
+  }
+
+  .menu {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sideNote {
+    margin-top: 0;
+  }
+
+  .speechBubble,
+  .musicCard,
+  .catActions,
+  .watchKitty {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .catPanel {
+    min-height: 610px;
+  }
+
+  .catClickZone {
+    right: 8%;
+    top: 170px;
+  }
+}
+
+@media (max-width: 720px) {
+  body {
+    background-attachment: scroll;
+    background-position: 68% center;
+  }
+
+  .app {
+    padding: 16px;
+    gap: 18px;
+  }
+
+  .logoText {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .menu,
+  .quickActions,
+  .catActions {
+    grid-template-columns: 1fr;
+  }
+
+  .hero,
+  .comfortCard {
+    padding: 24px;
+  }
+
+  .hero h1 {
+    font-size: 2.35rem;
+  }
+
+  .quickBtn {
+    min-height: 86px;
+  }
+
+  .speechBubble {
+    margin-top: 30px;
+  }
+
+  .catClickZone {
+    display: none;
+  }
+}
